@@ -1,0 +1,116 @@
+body{
+  background-color: #181136;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+.welcome-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.welcome-div h1, h2, p,button {
+   color: white;
+}
+.welcome-div p{
+  
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+.welcome-div button{
+   background: linear-gradient(45deg, #d35586, #8f1560);
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+    margin-bottom: 8px;
+  appearance: none;
+ 
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(45deg, #722442, #f358b8);
+  border-radius: 6px;
+
+}
+
+
+progress::-webkit-progress-bar {
+  background-color: #1e1646; 
+   border-radius: 6px;
+ 
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container *{
+  color: wheat;
+  list-style-type: none;
+
+}
+.container{
+  background-color:#130c36 ;
+  width: 500px;
+  padding: 25px;
+
+}
+
+.container .option {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+
+.option p {
+  width: 100%;
+  padding: 7px;
+  background-color: #1e1646;
+  text-align: left; 
+  border-radius: 4px;
+  
+}
+.container label{
+  font-size: 12px;
+}
+.container-div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container-div button{
+  background: linear-gradient(45deg, #722442, #f358b8);
+}
+.cantainer-div{
+  background-color: #1e1646;
+  padding: 50px;
+  border-radius: 15px;
+}
+.cantainer-div button{
+  background: linear-gradient(45deg, #722442, #f358b8);
+
+}
+
+.wrong {
+  background-color: rgb(156, 12, 12) !important;
+}
+
+.correct {
+  background-color: rgb(9, 117, 9) !important; 
+}
+
+
+
+
