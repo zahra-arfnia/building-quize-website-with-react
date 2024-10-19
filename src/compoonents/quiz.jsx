@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import data from "../assets/data.js";
 
 function Quiz({ onComplete }) {
@@ -9,8 +9,29 @@ function Quiz({ onComplete }) {
     const [check, setCheck] = useState(false);
     const [progress,setprogress]=useState(4)
     const [score,setscore]=useState(0)
+    const [timeLeft, setTimeLeft] = useState(300)
 
-  
+
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimeLeft(prevTime => {
+                if (prevTime <= 0) {
+                    clearInterval(interval);
+                    onComplete(score)
+                    return 0; 
+                }
+                return prevTime - 1
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [onComplete, score]);
+
+
+
+
+
     function checkAnswer(e, answer) {
         if (check) return;
 
@@ -28,6 +49,8 @@ function Quiz({ onComplete }) {
 
         setCheck(true);
     }
+
+
 
     function handleNextBtn() {
         if (index < data.length - 1) {
@@ -49,6 +72,8 @@ function Quiz({ onComplete }) {
         }
     }
 
+
+
     return (
         <div className="container">
             <h1>the react Quiz</h1>
@@ -57,20 +82,21 @@ function Quiz({ onComplete }) {
             <h4>{question.question}</h4>
 
             <div className="option">
-                {question.options.map((option, i) => (
+                {question.options.map((option, k) => (
                     <p 
-                        key={i} 
+                        key={k} 
                         data-answer={option}
                         onClick={(e) => checkAnswer(e, option)} 
                         className={`${selected === option ? (question.answer === option ? "correct" : "wrong") : ""}`}
                     >
                         {option}
-                    </p>
-                ))}
+                  </p>
+                ))} 
+                
             </div>
 
             <div className="container-div">
-            <div>Time left :{score}</div>
+            <div> Time Left : {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}</div>
                 <button onClick={handleNextBtn}>Next question</button>
             </div>
         </div>
