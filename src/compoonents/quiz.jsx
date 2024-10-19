@@ -78,7 +78,7 @@ function Quiz({ onComplete }) {
         <div className="container">
             <h1>the react Quiz</h1>
             <progress max="60" value={progress} id="process"></progress>
-            <label>Question {index + 1}/{data.length}</label>
+            <label>Question {index + 1}/15</label>
             <h4>{question.question}</h4>
 
             <div className="option">
