@@ -28,7 +28,8 @@ function Quiz({ onComplete }) {
         return () => clearInterval(interval);
     }, [onComplete, score]);
 
-
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = String(timeLeft % 60).padStart(2, '0');
 
 
 
@@ -96,7 +97,7 @@ function Quiz({ onComplete }) {
             </div>
 
             <div className="container-div">
-            <div> Time Left : {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}</div>
+            <div> Time Left : {minutes}:{seconds}</div>
                 <button onClick={handleNextBtn}>Next question</button>
             </div>
         </div>
